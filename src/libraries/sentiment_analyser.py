@@ -1,18 +1,23 @@
+import pickle
+from sklearn.feature_extraction.text import CountVectorizer
 
 class GroupSentimentAnalyser():
 
     @classmethod
-    def find_sentiment(cls,df):
-        # TrainedModel.predict(cls.config['input_data'])
+    def find_sentiment(cls,data):
+        # try:
+        count_vectorizer = CountVectorizer(ngram_range=(1,2))    # Unigram and Bigram
+        final_vectorized_data = count_vectorizer.fit_transform([data])  
+        model_filename = "src/data/model/sentiment_naive.sav"
 
-        # #iterating on rows in dataframe
-        # for index, row in df.iterrows():
+        model = pickle.load(open(model_filename, 'rb')) # the model will be read into the object my_knn_model 
+                                                            # and you can use the same model to predict the new data.
 
-        #     #adding a new columns with value in the row
-        #     # df.loc[index, 'Timestamp'] = datetime.datetime.now().strftime('%c')
-        #     print(row["text"])
-        #     # print(datetime.fromtimestamp(row["timestamp"]).strftime("%A, %B %d, %Y %I:%M:%S"))
-        #     break
+        result = model.predict(final_vectorized_data) # X_test is where the new data that is to be predicted is inserted, 
+                                            # here X_test is a part of dataset 
+        # except Exception as e:
+        #     return "Code fat gya :: At Sentiment Analyser"
 
-
+        if result:
+            return result
         return "Not detected"

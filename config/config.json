@@ -1,6 +1,7 @@
 {
-    "chat_dir_path": "/media/gourav/LEARN/1_Code/1_Projects/SentimentAnalyser/Chatistics",
+    
+    "chat_dir_path": "./Chatistics",
     "own_name": "Gourav",
     "export_format": "csv",
-    "export_dir_path": "/media/gourav/LEARN/1_Code/1_Projects/SentimentAnalyser/Chatistics/exports"
+    "export_dir_path": "../Chatistics/exports"
 }
