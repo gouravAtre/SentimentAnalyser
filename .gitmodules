@@ -1,0 +1,3 @@
+[submodule "Chatistics"]
+	path = Chatistics
+	url = https://github.com/gouravAtre/Chatistics.git
